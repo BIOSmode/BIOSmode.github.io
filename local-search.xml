@@ -11,6 +11,12 @@
     <content type="html"><![CDATA[<p><img src="0001.jpg" alt="page01"><br><img src="0002.jpg" alt="page02"><br><img src="0003.jpg" alt="page03"><br><img src="0004.jpg" alt="page04"><br><img src="0005.jpg" alt="page05"><br><img src="0006.jpg" alt="page06"><br><img src="0007.jpg" alt="page07"><br><img src="0008.jpg" alt="page08"><br><img src="0009.jpg" alt="page09"><br><img src="0010.jpg" alt="page10"><br><img src="0011.jpg" alt="page11"><br><img src="0012.jpg" alt="page12"><br><img src="0013.jpg" alt="page13"><br><img src="0014.jpg" alt="page14"><br><img src="0015.jpg" alt="page15">    </p>]]></content>
     
     
+    <categories>
+      
+      <category>Publication</category>
+      
+    </categories>
+    
     
     <tags>
       
@@ -29,6 +35,12 @@
     
     <content type="html"><![CDATA[<p><img src="SUNGUIYU_Beihang_CV.jpg" alt="CV"></p>]]></content>
     
+    
+    <categories>
+      
+      <category>CV</category>
+      
+    </categories>
     
     
     <tags>
