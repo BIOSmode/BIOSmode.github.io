@@ -56,31 +56,6 @@
   
   
   <entry>
-    <title>The second blog</title>
-    <link href="/2020/test/"/>
-    <url>/2020/test/</url>
-    
-    <content type="html"><![CDATA[<p>hide: true</p><h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome!"></a>Welcome!</h1><a id="more"></a><p>这是一个为置顶博客的测试。</p><hr>]]></content>
-    
-    
-    <categories>
-      
-      <category>Diary</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Diary</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>A New website and Blog for myself!</title>
     <link href="/2020/NewWeb/"/>
     <url>/2020/NewWeb/</url>
