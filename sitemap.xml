@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunguiyu.top/2020/Transit/</loc>
+    
+    <lastmod>2020-10-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunguiyu.top/2020/Disappointed/</loc>
     
     <lastmod>2020-10-18</lastmod>
@@ -32,7 +39,7 @@
 
   <url>
     <loc>http://sunguiyu.top/</loc>
-    <lastmod>2020-10-18</lastmod>
+    <lastmod>2020-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -40,7 +47,14 @@
   
   <url>
     <loc>http://sunguiyu.top/tags/Diary/</loc>
-    <lastmod>2020-10-18</lastmod>
+    <lastmod>2020-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://sunguiyu.top/tags/Doppler-Research/</loc>
+    <lastmod>2020-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -49,7 +63,14 @@
   
   <url>
     <loc>http://sunguiyu.top/categories/Diary/</loc>
-    <lastmod>2020-10-18</lastmod>
+    <lastmod>2020-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://sunguiyu.top/categories/Algorithm/</loc>
+    <lastmod>2020-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
