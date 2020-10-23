@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://sunguiyu.top/2020/test/</loc>
+    <loc>http://sunguiyu.top/2020/Transit/</loc>
     
     <lastmod>2020-10-23</lastmod>
     
   </url>
   
   <url>
-    <loc>http://sunguiyu.top/2020/Transit/</loc>
+    <loc>http://sunguiyu.top/2020/test/</loc>
     
     <lastmod>2020-10-23</lastmod>
     
@@ -53,7 +53,14 @@
   </url>
   
   <url>
-    <loc>http://sunguiyu.top/tags/Doppler-Research/</loc>
+    <loc>http://sunguiyu.top/tags/Doppler/</loc>
+    <lastmod>2020-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://sunguiyu.top/tags/Research/</loc>
     <lastmod>2020-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
