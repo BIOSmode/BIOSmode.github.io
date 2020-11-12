@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="SUN GUIYU">
   <meta name="keywords" content="">
-  <title>给自己祈个福吧~ - SUN&#39;s Homepage</title>
+  <title>方差、协方差、标准差、均方差、均方根误差以及均方根值对比 - SUN&#39;s Homepage</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -179,8 +179,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-07 22:39" pubdate>
-        November 7, 2020 pm
+      <time datetime="2020-11-12 11:04" pubdate>
+        November 12, 2020 am
       </time>
     </span>
   
@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      325 字
+      1.5k 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      17
        分钟
     </span>
   
@@ -243,25 +243,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">给自己祈个福吧~</h1>
+            <h1 style="display: none">方差、协方差、标准差、均方差、均方根误差以及均方根值对比</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 days ago
+                  本文最后更新于：2 minutes ago
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>立这个贴主要是给自己祈个福，真的有点想有个学可以上呀！</p>
-<a id="more"></a>
-<h3 id="第四次的雅思之旅"><a href="#第四次的雅思之旅" class="headerlink" title="第四次的雅思之旅"></a>第四次的雅思之旅</h3><p>这第四次的雅思我信心满满的去了，信心满满的出来了。<br>成绩又回到了最初的起点。<br>目前四次，人家是听说读写样样精通，我是听说读写一样瘸一次腿，真是没毛病。</p>
-<h3 id="实验室的问题"><a href="#实验室的问题" class="headerlink" title="实验室的问题"></a>实验室的问题</h3><p>实验室的问题是解决了，目前在论文上还有有一些思路的，但是最近实在是事情比较多，毕业论文、实习报告，自己应该还是要写三封信，都需要相当的时间，不知道这篇论文能不能投的出去。</p>
-<h3 id="祈福祈福"><a href="#祈福祈福" class="headerlink" title="祈福祈福"></a>祈福祈福</h3><p>不多说了，先上个超越妹妹祈个锦鲤保佑吧。<br><img src="yangchaoyue.jpg" srcset="/img/loading.gif" alt="YCY"><br>尽管自己主要是本科期间太过于荒废自我了，但是本咸鱼还是可以体验到那么一些科研的乐趣的，尽管今年环境如此复杂和恶劣，还是希望有个书读的。</p>
-<h3 id="立冬到，吃饺子"><a href="#立冬到，吃饺子" class="headerlink" title="立冬到，吃饺子"></a>立冬到，吃饺子</h3><p>今天完完全全自己做了一顿饺子吃，行了，出门肯定饿不死了。<br><img src="20201107_135150.jpg" srcset="/img/loading.gif" alt="jiaozi1"><br><img src="20201107_151910.jpg" srcset="/img/loading.gif" alt="jiaozi2"><br><img src="20201107_153125.jpg" srcset="/img/loading.gif" alt="jiaozi3"><br><img src="20201107_155016.jpg" srcset="/img/loading.gif" alt="jiaozi4">   </p>
-<h3 id="之后的打算。"><a href="#之后的打算。" class="headerlink" title="之后的打算。"></a>之后的打算。</h3><ol>
-<li>先毕业吧，剩下的再说。</li>
-<li>希望有个老师愿意要我，哈哈哈。</li>
+              <p>由于研究中涉及到了对实验结果的处理和统计，发现自己对于均方差和均方根值的概念记忆非常模糊，故搜集了描述统计量的偏差的几个关键值的资料，并加入个人的理解记录在此。<br><a id="more"></a></p>
+<h2 id="方差（Variance）"><a href="#方差（Variance）" class="headerlink" title="方差（Variance）"></a>方差（Variance）</h2><p>方差通常用来用于衡量一组随机变量或统计变量的离散程度。  </p>
+<h3 id="概率论中方差计算方法"><a href="#概率论中方差计算方法" class="headerlink" title="概率论中方差计算方法"></a>概率论中方差计算方法</h3><p>在随机变量中，方差用于度量随机变量和其数学期望之间的偏离程度。  </p>
+<ol>
+<li>对于连续型随机变量，其数学期望： <script type="math/tex; mode=display">E(x)=\displaystyle \sum^{n}_{i=1}{x_iy_i}</script></li>
+<li>对于离散型随机变量，其数学期望：  <script type="math/tex; mode=display">E(x)=\displaystyle \int^{+\infty}_{-\infty}{xf(x)dx}</script>其中，$x_i$是变量，$p_i$是$x_i$发生的概率，$f(x)$是$x$的概率密度函数。<br>方差的求法如下：<script type="math/tex; mode=display">D(X)=Var(X)=E[X-E(X)]^2=E(X^2)-E(X)^2</script><h3 id="统计学中方差计算方法"><a href="#统计学中方差计算方法" class="headerlink" title="统计学中方差计算方法"></a>统计学中方差计算方法</h3><strong>总体方差</strong>，也称有偏估计，即度量统计中每一个量的离散程度。<br>计算方法,先求所有量的均值：<script type="math/tex; mode=display">\bar{X}= \frac{x_1+x_2+\ldots+x_n}{n}</script>其中，$x_1+x_2+\ldots+x_n$表示每一个的值，方差公式为:<script type="math/tex; mode=display">σ^2=\frac{(x_1-\bar{X})^2+(x_2-\bar{X})^2+\ldots+(x_n-\bar{X})^2}{n}</script><strong>样本方差</strong>，也称无偏估计，即通过度量样本的离散程度来估计总体的离散程度，方差计算方法如下：<script type="math/tex; mode=display">s^2=\frac{(x_1-\bar{X})^2+(x_2-\bar{X})^2+\ldots+(x_n-\bar{X})^2}{n-1}</script>为什么将分母由$n$变为$n-1$即令其为无偏估计误差，参考文章<a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/607">《为什么样本方差（sample variance）的分母是 n-1？》</a></li>
 </ol>
+<h2 id="协方差（Covariance）"><a href="#协方差（Covariance）" class="headerlink" title="协方差（Covariance）"></a>协方差（Covariance）</h2><p>协方差在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是同一变量的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>概率论中：</p>
+<script type="math/tex; mode=display">Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E[XY]-E[X]E[Y]</script><p>其中$E[X]$和$E[Y]$分别是X和Y的数学期望；  </p>
+<p>统计学中：</p>
+<script type="math/tex; mode=display">cov(X,Y)= \frac{\sum^{n}_{i = 1}{(x_i-\bar{X})(y_i-\bar{Y})}}{n-1}</script><h2 id="标准差（Standard-Deviation"><a href="#标准差（Standard-Deviation" class="headerlink" title="标准差（Standard Deviation)"></a>标准差（Standard Deviation)</h2><p>标准差也被称为标准偏差,在中文环境中又常称均方差，是数据偏离均值的平方和平均后的方根，用σ表示。标准差是方差的算术平方根。标准差能反映一个数据集的离散程度，只是由于方差出现了平方项造成量纲的倍数变化，无法直观反映出偏离程度，于是出现了标准差，标准偏差越小，这些值偏离平均值就越少，反之亦然。<br><strong>总体标准差</strong>：</p>
+<script type="math/tex; mode=display">σ=\sqrt{\frac{1}{N-1}\displaystyle \sum^{N}_{i=1}{(x_i-\mu)^2}}</script><p>其中$\mu$代表总体X的数学期望。<br><strong>样本标准差</strong>：</p>
+<script type="math/tex; mode=display">s=\sqrt{\frac{1}{N}\displaystyle \sum^{N}_{i=1}{(x_i-\bar X)^2}}</script><p>其中$\bar X$代表样本$X_1,X_2,\ldots,X_n$的均值。</p>
+<h2 id="均方误差（Mean-Square-Error-MSE）"><a href="#均方误差（Mean-Square-Error-MSE）" class="headerlink" title="均方误差（Mean-Square Error, MSE）"></a>均方误差（Mean-Square Error, MSE）</h2><p>均方误差是反映估计量与被估计量之间差异程度的一种度量，换句话说，参数估计值与参数真值之差的平方的期望值。MSE可以评价数据的变化程度，MSE的值越小，说明预测模型描述实验数据具有更好的精确度。</p>
+<script type="math/tex; mode=display">MSE=\frac{1}{N}\displaystyle \sum^{n}_{t=1}{(observed_t-predicted_t)^2}</script><h2 id="均方根误差（Root-Mean-Squared-Error，RMSE）"><a href="#均方根误差（Root-Mean-Squared-Error，RMSE）" class="headerlink" title="均方根误差（Root Mean Squared Error，RMSE）"></a>均方根误差（Root Mean Squared Error，RMSE）</h2><p>均方根误差亦称标准误差，是均方误差的算术平方根。换句话说，是观测值与真值(或模拟值)偏差(而不是观测值与其平均值之间的偏差)的平方与观测次数n比值的平方根，在实际测量中，观测次数n总是有限的，真值只能用最可信赖（最佳）值来代替。标准误差对一组测量中的特大或特小误差反映非常敏感，所以，标准误差能够很好地反映出测量的精密度。这正是标准误差在工程测量中广泛被采用的原因。<strong>因此，标准差是用来衡量一组数自身的离散程度，而均方根误差是用来衡量观测值同真值之间的偏差。</strong></p>
+<script type="math/tex; mode=display">RMSE=\sqrt{\frac{1}{N}\displaystyle \sum^{n}_{t=1}{(observed_t-predicted_t)^2}}</script><h2 id="均方根值（Root-Mean-Square，RMS）"><a href="#均方根值（Root-Mean-Square，RMS）" class="headerlink" title="均方根值（Root-Mean-Square，RMS）"></a>均方根值（Root-Mean-Square，RMS）</h2><p>均方根值也称作为方均根值或有效值，在数据统计分析中，将所有值平方求和，求其均值，再开平方，就得到均方根值。在物理学中，我们常用均方根值来分析噪声。</p>
+<script type="math/tex; mode=display">X_{RMS}=\sqrt{\frac{\sum^{N}_{i=1}{X_i^2}}{N}}=\sqrt{\frac{X_1^2+X_2^2+\ldots+X_N^2}{N}}</script><p>举个例子：比如幅度为100V而占空比为0.5的方波信号，如果按平均值计算，它的电压只有50V，而按均方根值计算则有70.71V。这是为什么呢？举一个例子，有一组100伏的电池组，每次供电10分钟之后停10分钟，也就是说占空比为一半。如果这组电池带动的是10Ω电阻，供电的10分钟产生10A 的电流和1000W的功率，停电时电流和功率为零。</p>
 
             </div>
             <hr>
@@ -271,7 +278,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Diary/">Diary</a>
+                      <a class="hover-with-bg" href="/categories/Knowledge/">Knowledge</a>
                     
                   </div>
                 
@@ -279,7 +286,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Diary/">Diary</a>
+                      <a class="hover-with-bg" href="/tags/Research/">Research</a>
+                    
+                      <a class="hover-with-bg" href="/tags/statistic/">statistic</a>
                     
                   </div>
                 
@@ -292,9 +301,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/statistic-value/">
+                      <a href="/2020/markdown/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">方差、协方差、标准差、均方差、均方根误差以及均方根值对比</span>
+                        <span class="hidden-mobile">Markdown公式语法</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -302,8 +311,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/Transit/">
-                        <span class="hidden-mobile">Transit Navigation Satellite System</span>
+                      <a href="/2020/preying/">
+                        <span class="hidden-mobile">给自己祈个福吧~</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -588,7 +597,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/preying/');
+          var target = decodeURI('/2020/statistic-value/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -682,7 +691,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "给自己祈个福吧~&nbsp;",
+        "方差、协方差、标准差、均方差、均方根误差以及均方根值对比&nbsp;",
       ],
       cursorChar: "_ゅ",
       typeSpeed: 50,
@@ -745,6 +754,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
 
 
 
