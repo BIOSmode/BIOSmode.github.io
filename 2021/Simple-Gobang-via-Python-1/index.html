@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="SUN GUIYU">
   <meta name="keywords" content="">
-  <title>方差、协方差、标准差、均方差、均方根误差以及均方根值对比 - SUN&#39;s Homepage</title>
+  <title>Simple Gobang via Python(1) - SUN&#39;s Homepage</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -179,8 +179,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-12 11:04" pubdate>
-        November 12, 2020 am
+      <time datetime="2021-04-16 11:19" pubdate>
+        April 16, 2021 am
       </time>
     </span>
   
@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      803 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      13
        分钟
     </span>
   
@@ -243,52 +243,176 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">方差、协方差、标准差、均方差、均方根误差以及均方根值对比</h1>
+            <h1 style="display: none">Simple Gobang via Python(1)</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 months ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>由于研究中涉及到了对实验结果的处理和统计，发现自己对于均方差和均方根值的概念记忆非常模糊，故搜集了描述统计量的偏差的几个关键值的资料，并加入个人的理解记录在此。<br><a id="more"></a></p>
-<h2 id="方差（Variance）"><a href="#方差（Variance）" class="headerlink" title="方差（Variance）"></a>方差（Variance）</h2><p>方差通常用来用于衡量一组随机变量或统计变量的离散程度。  </p>
-<h3 id="概率论中方差计算方法"><a href="#概率论中方差计算方法" class="headerlink" title="概率论中方差计算方法"></a>概率论中方差计算方法</h3><p>在随机变量中，方差用于度量随机变量和其数学期望之间的偏离程度。  </p>
-<ol>
-<li>对于连续型随机变量，其数学期望： <script type="math/tex; mode=display">E(x)=\displaystyle \sum^{n}_{i=1}{x_iy_i}</script></li>
-<li>对于离散型随机变量，其数学期望：  <script type="math/tex; mode=display">E(x)=\displaystyle \int^{+\infty}_{-\infty}{xf(x)dx}</script>其中，$x_i$是变量，$p_i$是$x_i$发生的概率，$f(x)$是$x$的概率密度函数。<br>方差的求法如下：<script type="math/tex; mode=display">D(X)=Var(X)=E[X-E(X)]^2=E(X^2)-E(X)^2</script><h3 id="统计学中方差计算方法"><a href="#统计学中方差计算方法" class="headerlink" title="统计学中方差计算方法"></a>统计学中方差计算方法</h3><strong>总体方差</strong>，也称有偏估计，即度量统计中每一个量的离散程度。<br>计算方法,先求所有量的均值：<script type="math/tex; mode=display">\bar{X}= \frac{x_1+x_2+\ldots+x_n}{n}</script>其中，$x_1+x_2+\ldots+x_n$表示每一个的值，方差公式为:<script type="math/tex; mode=display">σ^2=\frac{(x_1-\bar{X})^2+(x_2-\bar{X})^2+\ldots+(x_n-\bar{X})^2}{n}</script><strong>样本方差</strong>，也称无偏估计，即通过度量样本的离散程度来估计总体的离散程度，方差计算方法如下：<script type="math/tex; mode=display">s^2=\frac{(x_1-\bar{X})^2+(x_2-\bar{X})^2+\ldots+(x_n-\bar{X})^2}{n-1}</script>为什么将分母由$n$变为$n-1$即令其为无偏估计误差，参考文章<a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/607">《为什么样本方差（sample variance）的分母是 n-1？》</a></li>
-</ol>
-<h2 id="协方差（Covariance）"><a href="#协方差（Covariance）" class="headerlink" title="协方差（Covariance）"></a>协方差（Covariance）</h2><p>协方差在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是同一变量的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>概率论中：</p>
-<script type="math/tex; mode=display">Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E[XY]-E[X]E[Y]</script><p>其中$E[X]$和$E[Y]$分别是X和Y的数学期望；  </p>
-<p>统计学中：</p>
-<script type="math/tex; mode=display">cov(X,Y)= \frac{\sum^{n}_{i = 1}{(x_i-\bar{X})(y_i-\bar{Y})}}{n-1}</script><h2 id="标准差（Standard-Deviation"><a href="#标准差（Standard-Deviation" class="headerlink" title="标准差（Standard Deviation)"></a>标准差（Standard Deviation)</h2><p>标准差也被称为标准偏差,在中文环境中又常称均方差，是数据偏离均值的平方和平均后的方根，用σ表示。标准差是方差的算术平方根。标准差能反映一个数据集的离散程度，只是由于方差出现了平方项造成量纲的倍数变化，无法直观反映出偏离程度，于是出现了标准差，标准偏差越小，这些值偏离平均值就越少，反之亦然。<br><strong>总体标准差</strong>：</p>
-<script type="math/tex; mode=display">σ=\sqrt{\frac{1}{N-1}\displaystyle \sum^{N}_{i=1}{(x_i-\mu)^2}}</script><p>其中$\mu$代表总体X的数学期望。<br><strong>样本标准差</strong>：</p>
-<script type="math/tex; mode=display">s=\sqrt{\frac{1}{N}\displaystyle \sum^{N}_{i=1}{(x_i-\bar X)^2}}</script><p>其中$\bar X$代表样本$X_1,X_2,\ldots,X_n$的均值。</p>
-<h2 id="均方误差（Mean-Square-Error-MSE）"><a href="#均方误差（Mean-Square-Error-MSE）" class="headerlink" title="均方误差（Mean-Square Error, MSE）"></a>均方误差（Mean-Square Error, MSE）</h2><p>均方误差是反映估计量与被估计量之间差异程度的一种度量，换句话说，参数估计值与参数真值之差的平方的期望值。MSE可以评价数据的变化程度，MSE的值越小，说明预测模型描述实验数据具有更好的精确度。</p>
-<script type="math/tex; mode=display">MSE=\frac{1}{N}\displaystyle \sum^{n}_{t=1}{(observed_t-predicted_t)^2}</script><h2 id="均方根误差（Root-Mean-Squared-Error，RMSE）"><a href="#均方根误差（Root-Mean-Squared-Error，RMSE）" class="headerlink" title="均方根误差（Root Mean Squared Error，RMSE）"></a>均方根误差（Root Mean Squared Error，RMSE）</h2><p>均方根误差亦称标准误差，是均方误差的算术平方根。换句话说，是观测值与真值(或模拟值)偏差(而不是观测值与其平均值之间的偏差)的平方与观测次数n比值的平方根，在实际测量中，观测次数n总是有限的，真值只能用最可信赖（最佳）值来代替。标准误差对一组测量中的特大或特小误差反映非常敏感，所以，标准误差能够很好地反映出测量的精密度。这正是标准误差在工程测量中广泛被采用的原因。<strong>因此，标准差是用来衡量一组数自身的离散程度，而均方根误差是用来衡量观测值同真值之间的偏差。</strong></p>
-<script type="math/tex; mode=display">RMSE=\sqrt{\frac{1}{N}\displaystyle \sum^{n}_{t=1}{(observed_t-predicted_t)^2}}</script><h2 id="均方根值（Root-Mean-Square，RMS）"><a href="#均方根值（Root-Mean-Square，RMS）" class="headerlink" title="均方根值（Root-Mean-Square，RMS）"></a>均方根值（Root-Mean-Square，RMS）</h2><p>均方根值也称作为方均根值或有效值，在数据统计分析中，将所有值平方求和，求其均值，再开平方，就得到均方根值。在物理学中，我们常用均方根值来分析噪声。</p>
-<script type="math/tex; mode=display">X_{RMS}=\sqrt{\frac{\sum^{N}_{i=1}{X_i^2}}{N}}=\sqrt{\frac{X_1^2+X_2^2+\ldots+X_N^2}{N}}</script><p>举个例子：比如幅度为100V而占空比为0.5的方波信号，如果按平均值计算，它的电压只有50V，而按均方根值计算则有70.71V。这是为什么呢？举一个例子，有一组100伏的电池组，每次供电10分钟之后停10分钟，也就是说占空比为一半。如果这组电池带动的是10Ω电阻，供电的10分钟产生10A 的电流和1000W的功率，停电时电流和功率为零。</p>
+              <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>在Python的培训课中，自己写了一个简单的利用list实现的五子棋程序。<br>分为自动对战/双人对战两种，但是目前自动对战基于随机落子，尚不涉及策略。<br>这是实现五子棋对战的第一步，后面希望可以实现策略落子以及人机对战。<br>该项目已经上传github：<a target="_blank" rel="noopener" href="https://github.com/BIOSmode/Gobang">Gobang</a>    </p>
+<h3 id="实现结果："><a href="#实现结果：" class="headerlink" title="实现结果："></a>实现结果：</h3><p>基本功能：<br><img src="Be.jpg" srcset="/img/loading.gif" alt="mode"><br><img src="Re.jpg" srcset="/img/loading.gif" alt="end">    </p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>代码如下：<br><pre><code class="hljs python"><span class="hljs-comment"># 初始化棋盘</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">InitialChckerBoard</span>(<span class="hljs-params">row, col</span>):</span>
+    Cboard = [[<span class="hljs-string">&#x27;[ ]&#x27;</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(col)] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(row)]
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(row):
+        Cboard[<span class="hljs-number">0</span>][i] = str(i).center(<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(col):
+        Cboard[i][<span class="hljs-number">0</span>] = str(i).rjust(<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">return</span> Cboard
+
+
+<span class="hljs-comment"># 显示棋盘</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DisplayCheckerBoard</span>(<span class="hljs-params">Cboard</span>):</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(m):
+            print(Cboard[i][j], end=<span class="hljs-string">&#x27;  &#x27;</span>)
+        print()
+    print()
+
+
+<span class="hljs-comment"># 判断此处是否有子</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CheckPiece</span>(<span class="hljs-params">x, y</span>):</span>
+    <span class="hljs-keyword">if</span> Cboard[x][y] == <span class="hljs-string">&#x27; * &#x27;</span> <span class="hljs-keyword">or</span> Cboard[x][y] == <span class="hljs-string">&#x27; o &#x27;</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+
+
+<span class="hljs-comment"># 下棋</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">MakeMove</span>(<span class="hljs-params">Cboard</span>):</span>
+    <span class="hljs-keyword">global</span> Move, m1, m2
+    <span class="hljs-keyword">if</span> CheckPiece(Move[<span class="hljs-number">1</span>], Move[<span class="hljs-number">2</span>]) == <span class="hljs-literal">False</span>:
+        <span class="hljs-keyword">if</span> Move[<span class="hljs-number">0</span>] == <span class="hljs-number">1</span>:
+            mark = <span class="hljs-string">&#x27; * &#x27;</span>
+            m1 += <span class="hljs-number">1</span>
+            Move[<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>
+            print(<span class="hljs-string">&#x27;Player1 put the &#x27;</span>, m1, <span class="hljs-string">&#x27; piece at (&#x27;</span>, Move[<span class="hljs-number">1</span>], <span class="hljs-string">&#x27;, &#x27;</span>, Move[<span class="hljs-number">2</span>], <span class="hljs-string">&#x27;).&#x27;</span>)
+        <span class="hljs-keyword">else</span>:
+            mark = <span class="hljs-string">&#x27; o &#x27;</span>
+            m2 += <span class="hljs-number">1</span>
+            Move[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>
+            print(<span class="hljs-string">&#x27;Player2 put the &#x27;</span>, m2, <span class="hljs-string">&#x27; piece at (&#x27;</span>, Move[<span class="hljs-number">1</span>], <span class="hljs-string">&#x27;, &#x27;</span>, Move[<span class="hljs-number">2</span>], <span class="hljs-string">&#x27;).&#x27;</span>)
+        Cboard[Move[<span class="hljs-number">1</span>]][Move[<span class="hljs-number">2</span>]] = mark
+        <span class="hljs-keyword">return</span> Cboard
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">&#x27;To player&#x27;</span>, Move[<span class="hljs-number">0</span>], <span class="hljs-string">&#x27;: please re-select location!&#x27;</span>)
+        <span class="hljs-keyword">return</span> Cboard
+
+
+<span class="hljs-comment"># 自动选择下棋位置</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">SelectPointA</span>(<span class="hljs-params">row,col</span>):</span>
+    Move[<span class="hljs-number">1</span>] = random.randint(<span class="hljs-number">1</span>, row<span class="hljs-number">-1</span>)
+    Move[<span class="hljs-number">2</span>] = random.randint(<span class="hljs-number">1</span>, col<span class="hljs-number">-1</span>)
+
+
+<span class="hljs-comment"># 人工选择下棋位置</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">SelectPointP</span>(<span class="hljs-params">row, col</span>):</span>
+    Move[<span class="hljs-number">1</span>] = row
+    Move[<span class="hljs-number">2</span>] = col
+
+
+<span class="hljs-comment"># 判断输赢</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CheckResult</span>(<span class="hljs-params">Cboard</span>):</span>
+    <span class="hljs-keyword">global</span> winner
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n - <span class="hljs-number">4</span>):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, m - <span class="hljs-number">4</span>):
+            <span class="hljs-keyword">if</span> Cboard[i][j] == <span class="hljs-string">&#x27; * &#x27;</span> <span class="hljs-keyword">or</span> Cboard[i][j] == <span class="hljs-string">&#x27; o &#x27;</span>:
+                <span class="hljs-keyword">if</span> Cboard[i][j] == <span class="hljs-string">&#x27; * &#x27;</span>:
+                    winner = <span class="hljs-number">1</span>
+                <span class="hljs-keyword">else</span>:
+                    winner = <span class="hljs-number">2</span>
+                <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span>][j] == Cboard[i][j]:  <span class="hljs-comment"># 判断同一行是否连成5个</span>
+                    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>):
+                        <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span> + k][j] != Cboard[i][j]:
+                            <span class="hljs-keyword">break</span>
+                        <span class="hljs-keyword">else</span>:
+                            <span class="hljs-keyword">if</span> k == <span class="hljs-number">3</span>:
+                                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+                <span class="hljs-keyword">if</span> Cboard[i][j + <span class="hljs-number">1</span>] == Cboard[i][j]:  <span class="hljs-comment"># 判断同一行是否连成5个</span>
+                    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>):
+                        <span class="hljs-keyword">if</span> Cboard[i][j + <span class="hljs-number">1</span> + k] != Cboard[i][j]:
+                            <span class="hljs-keyword">break</span>
+                        <span class="hljs-keyword">else</span>:
+                            <span class="hljs-keyword">if</span> k == <span class="hljs-number">3</span>:
+                                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+                <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span>][j + <span class="hljs-number">1</span>] == Cboard[i][j]:  <span class="hljs-comment"># 判断左上-右下对角是否连成5个</span>
+                    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>):
+                        <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span> + k][j + <span class="hljs-number">1</span> + k] != Cboard[i][j]:
+                            <span class="hljs-keyword">break</span>
+                        <span class="hljs-keyword">else</span>:
+                            <span class="hljs-keyword">if</span> k == <span class="hljs-number">3</span>:
+                                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+                <span class="hljs-keyword">if</span> j &gt; <span class="hljs-number">4</span>:
+                    <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] == Cboard[i][j]:  <span class="hljs-comment"># 判断右上-左下对角是否连成5个</span>
+                        <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>):
+                            <span class="hljs-keyword">if</span> Cboard[i + <span class="hljs-number">1</span> + k][j - <span class="hljs-number">1</span> - k] != Cboard[i][j]:
+                                <span class="hljs-keyword">break</span>
+                            <span class="hljs-keyword">else</span>:
+                                <span class="hljs-keyword">if</span> k == <span class="hljs-number">3</span>:
+                                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+
+
+<span class="hljs-comment"># 判断棋盘是否下满</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CheckFull</span>(<span class="hljs-params">Cboard</span>):</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, m):
+            <span class="hljs-keyword">if</span> Cboard[i][j] != <span class="hljs-string">&#x27; * &#x27;</span> <span class="hljs-keyword">and</span> Cboard[i][j] != <span class="hljs-string">&#x27; o &#x27;</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    <span class="hljs-comment"># 主进程</span>
+    <span class="hljs-keyword">import</span> random
+
+    m = <span class="hljs-number">21</span>
+    n = <span class="hljs-number">21</span>
+    <span class="hljs-comment"># 创建（m-1）*（n-1）的棋盘</span>
+    Cboard = InitialChckerBoard(m, n)
+    DisplayCheckerBoard(Cboard)
+
+    <span class="hljs-comment">#声明下棋落点的全局变量</span>
+    <span class="hljs-keyword">global</span> Move, m1, m2, winner
+    Move = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>]
+    m1 = <span class="hljs-number">0</span>
+    m2 = <span class="hljs-number">0</span>
+
+    mode = input(<span class="hljs-string">&quot;Please choose the game mode(a:auto,p:people):a/p:&quot;</span>)
+    <span class="hljs-keyword">if</span> mode == <span class="hljs-string">&#x27;a&#x27;</span>:
+        <span class="hljs-keyword">while</span> (CheckResult(Cboard) == <span class="hljs-literal">False</span>) <span class="hljs-keyword">and</span> (CheckFull(Cboard) == <span class="hljs-literal">False</span>):
+            SelectPointA(m,n)
+            Cboard = MakeMove(Cboard)
+            DisplayCheckerBoard(Cboard)
+    <span class="hljs-keyword">elif</span> mode == <span class="hljs-string">&#x27;p&#x27;</span>:
+        <span class="hljs-keyword">while</span> (CheckResult(Cboard) == <span class="hljs-literal">False</span>) <span class="hljs-keyword">and</span> (CheckFull(Cboard) == <span class="hljs-literal">False</span>):
+            print(<span class="hljs-string">&#x27;Player&#x27;</span>, Move[<span class="hljs-number">0</span>], <span class="hljs-string">&#x27;: row &lt;= &#x27;</span>, m - <span class="hljs-number">1</span>, <span class="hljs-string">&#x27; column &lt;= &#x27;</span>, n - <span class="hljs-number">1</span>)
+            inrow = int(input(<span class="hljs-string">&#x27;Enter the row:&#x27;</span>))
+            incol = int(input(<span class="hljs-string">&#x27;Enter the column:&#x27;</span>))
+            SelectPointP(inrow, incol)
+            Cboard = MakeMove(Cboard)
+            DisplayCheckerBoard(Cboard)
+
+    <span class="hljs-comment"># 判断棋局结果</span>
+    <span class="hljs-keyword">if</span> CheckResult(Cboard) == <span class="hljs-literal">True</span>:
+        print(<span class="hljs-string">&#x27;Player&#x27;</span>, winner, <span class="hljs-string">&#x27;won the game!&#x27;</span>)
+    <span class="hljs-keyword">if</span> CheckFull(Cboard) == <span class="hljs-literal">True</span>:
+        print(<span class="hljs-string">&#x27;Draw&#x27;</span>)
+
+</code></pre></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Knowledge/">Knowledge</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Research/">Research</a>
-                    
-                      <a class="hover-with-bg" href="/tags/statistic/">statistic</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                   </div>
                 
@@ -301,18 +425,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/markdown/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Markdown公式语法</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/preying/">
-                        <span class="hidden-mobile">给自己祈个福吧~</span>
+                      <a href="/2020/markdown/">
+                        <span class="hidden-mobile">Markdown公式语法</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -597,7 +715,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020/statistic-value/');
+          var target = decodeURI('/2021/Simple-Gobang-via-Python-1/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -691,7 +809,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "方差、协方差、标准差、均方差、均方根误差以及均方根值对比&nbsp;",
+        "Simple Gobang via Python(1)&nbsp;",
       ],
       cursorChar: "_ゅ",
       typeSpeed: 50,
@@ -754,45 +872,6 @@
 
 
 
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
-
-  
 
 
 
