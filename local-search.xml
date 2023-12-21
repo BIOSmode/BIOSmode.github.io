@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Test blog</title>
+    <link href="/2023/test%20_2/"/>
+    <url>/2023/test%20_2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome!"></a>Welcome!</h1><a id="more"></a><p>这是一个为重新启用个人网页-博客的测试。</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>Diary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Diary</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Simple Gobang via Python(1)</title>
     <link href="/2021/Simple-Gobang-via-Python-1/"/>
     <url>/2021/Simple-Gobang-via-Python-1/</url>
